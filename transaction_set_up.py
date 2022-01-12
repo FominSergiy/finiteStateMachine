@@ -1,38 +1,44 @@
 ''' Creating Finite State Machine to process debit or credit transactions '''
-from account import Account
-from transactionFsm import StateMachine
+from transaction_fsm import StateMachine
 
 def start_state(txt, account):
+    ''' Define start state'''
     if 'Debit' in txt:
-        newState = "debit_state"
+        new_state = "debit_state"
     elif 'Credit' in txt:
-        newState = "credit_state"
+        new_state = "credit_state"
     else:
-        newState = "error_state"
-    return (newState, txt, account)
+        new_state = "error_state"
+    return (new_state, txt, account)
 
 def debit_state_transition(txt, account):
+    '''Define state transition'''
     split_txt = txt.split(':')
     name = split_txt[0]
     num = int(split_txt[1])
+
     account.process_debit(num, name)
-    newState = 'Start'
+    new_state = 'Start'
     account.print_balance()
-    return (newState, txt, account)
+
+    return (new_state, txt, account)
 
 def credit_state_transition(txt, account):
+    '''Define credit state transition'''
     split_txt = txt.split(':')
     name = split_txt[0]
     num = int(split_txt[1])
+
     account.process_credit(num, name)
     account.print_balance()
 
     if account.get_balance() <= -1000:
-        newState = 'end_state'
+        new_state = 'end_state'
         account.print_transactions()
     else:
-        newState = 'Start'
-    return (newState, txt, account)
+        new_state = 'Start'
+
+    return (new_state, txt, account)
 
 if __name__== "__main__":
     m = StateMachine()
