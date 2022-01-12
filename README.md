@@ -10,7 +10,17 @@ the end state is reached once user account balance is <= -1000
 - transactionFsm imolements Finite State Machine
 - transactionSetUp runs the application
 
+## Requirements
+
+[Python3](https://www.python.org/downloads/) v3.9.6
+
+## How to run
+
+```
+python3 transaction_set_up.py
+```
+
 #### Resources
 
-FSM sample implementation - https://www.python-course.eu/finite_state_machine.php
+[FSM sample implementation](https://www.python-course.eu/finite_state_machine.php)
 
