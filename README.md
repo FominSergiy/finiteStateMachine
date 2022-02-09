@@ -1,6 +1,6 @@
 # Implementation of State Machines on Bank Transactions
 
-This code is an implementation of Finite State Machines concept and applied to banking transactions
+That code is an implementation of Finite State Machines concept and applied to banking transactions
 In this scenario user inputs either Debit or Credit transaction with it's value
 
 The error state is anything that is not debit or credit
